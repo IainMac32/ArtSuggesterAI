@@ -4,10 +4,17 @@
  */
 
 import './UploadSection.css';
+import DragNdrop from './DragNDrop';
+import React from 'react';
+import { useState } from 'react';
 
 export default function UploadSection() {
+    
+    const [files, setFiles] = useState([]);
+
     return (
         <>
+            <DragNdrop onFilesSelected={setFiles} width="300px" height='400px'/>
             <div className="upload-section">
                 <label htmlFor="file-upload" className="upload-label">
                     Upload image(s) here:

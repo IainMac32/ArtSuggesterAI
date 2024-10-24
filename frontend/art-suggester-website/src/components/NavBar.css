@@ -26,6 +26,10 @@
   opacity: 90%;
 }
 
+.nav-header nav a:hover {
+  color: var(--content-hover);
+}
+
 .nav-links {
   list-style: none;
   display: flex;
@@ -43,4 +47,8 @@
   width: 36px;
   height: 36px;
   border-radius: 20%;
+}
+
+.user-section {
+  padding-right: 10px;
 }

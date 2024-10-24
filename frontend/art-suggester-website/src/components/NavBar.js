@@ -20,7 +20,7 @@ export default function NavBar() {
                 </ul>
                 <div className='user-section'>
                     <a href="/login">Log In</a>
-                    <img src="/profile-pic.png" alt="profile" className='nav-profile-pic' />
+                    {/*<img src="/images/temp-pfp.jpg" alt="profile" className='nav-profile-pic' />*/}
                 </div>
             </nav>
         </header>

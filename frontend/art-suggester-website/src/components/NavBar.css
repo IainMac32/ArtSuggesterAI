@@ -33,13 +33,14 @@
 }
 
 .nav-profile-pic {
-  width: 30px;
-  height: 30px;
+  width: 36x;
+  height: 36px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .nav-logo {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 20%;
 }

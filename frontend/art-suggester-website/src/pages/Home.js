@@ -21,7 +21,7 @@ export default function Home() {
 
             <main className="main-section">
                 <h1>Art Suggester AI</h1>
-                <p>- from the McMaster AI Society</p>
+                <p className="home-subtitle">- from the <a href="/about">McMaster AI Society</a></p>
                 <UploadSection />
             </main>
         </>

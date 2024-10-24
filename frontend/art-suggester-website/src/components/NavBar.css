@@ -4,26 +4,42 @@
  */
 
 .nav-header {
+  top: 0;
+  background-color: var(--alt-background);
+  padding: 5px 15px;
+  margin: 0;
+  font-size: .9rem;
+}
+
+.nav-header nav {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--alt-background);
-  padding: 15px 30px;
+  padding: 0;
+  width: 100%;
+}
+
+.nav-header nav a {
+  text-decoration: none;
+  color: var(--content);
+  opacity: 90%;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--content);
+  gap: 40px;
 }
 
 .nav-profile-pic {
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
+}
+
+.nav-logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 20%;
 }

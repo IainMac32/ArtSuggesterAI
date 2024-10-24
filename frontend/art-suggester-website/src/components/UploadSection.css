@@ -3,35 +3,14 @@
  *  Contact before making changes
  */
 
-.nav-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--alt-background);
-  padding: 15px 30px;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--content);
-}
-
-.nav-profile-pic {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-
 .upload-section {
   max-width: 600px;
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
+}
+
+.upload-label {
+  font-size: 1rem;
 }
 
 .upload-box {
@@ -52,14 +31,20 @@
 }
 
 .upload-btn {
-  background-color: var(--alt-background);
+  background-color: var(--accent);
   color: var(--content);
   border: none;
-  padding: 10px 20px;
+  padding: 10px 35px;
   border-radius: 8px;
+  margin-bottom: 10px;
   cursor: pointer;
 }
 
 .upload-btn:hover {
   background-color: var(--alt-background);
+}
+
+.upload-section p {
+  margin: 0;
+  font-size: .8rem;
 }

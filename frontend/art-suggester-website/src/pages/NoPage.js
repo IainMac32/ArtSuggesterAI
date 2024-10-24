@@ -1,4 +1,3 @@
-import NavBar from "../components/NavBar";
 
 export default function NoPage() {
     return (

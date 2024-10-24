@@ -1,0 +1,29 @@
+/*
+ * Harrison Johns
+ *  Contact before making changes
+ */
+
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--alt-background);
+  padding: 15px 30px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--content);
+}
+
+.nav-profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}

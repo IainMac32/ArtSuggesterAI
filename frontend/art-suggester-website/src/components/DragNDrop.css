@@ -5,11 +5,20 @@
   .drop-container { 
     border: 2px solid #000;
     border-radius: 8px;
-    box-shadow: 4px 4px black;
     height: 320px;
     width: 100%;
     margin: 0 auto;
     background-color: var(--alt-background);
+    box-shadow: 4px 4px black;
+    transition: all .5s ease;
+  }
+
+  .container-drag-active { 
+    box-shadow: 10px 10px black;
+  }
+
+  .drop-container:hover {
+    box-shadow: 8px 8px black;
   }
   
   .another-drop-container {

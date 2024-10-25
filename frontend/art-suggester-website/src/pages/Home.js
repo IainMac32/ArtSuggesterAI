@@ -1,6 +1,5 @@
 /*
  * Harrison Johns
- *  Contact before making changes
  */
 
 import React from "react";

@@ -1,9 +1,9 @@
 /*
  * Harrison Johns
- *  Contact before making changes
  * 
  * To-be-added:
  * get profile pic from firebase
+ * make responsive (css)
  */
 
 import './NavBar.css';

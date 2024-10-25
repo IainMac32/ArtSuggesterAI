@@ -14,15 +14,8 @@ export default function UploadSection() {
 
     return (
         <>
-            <DragNdrop onFilesSelected={setFiles} width="300px" height='400px'/>
             <div className="upload-section">
-                <label htmlFor="file-upload" className="upload-label">
-                    Upload image(s) here:
-                </label>
-                <div className="upload-box">
-                    <input type="file" id="file-upload" className="file-input" />
-                    <i className="upload-icon">📁</i>
-                </div>
+                <DragNdrop onFilesSelected={setFiles}/>
                 <button className="upload-btn">Upload</button>
                 <p>Supported file types: .pdf, .jpg, .webp, ...</p>
             </div>

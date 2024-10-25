@@ -6,28 +6,8 @@
 .upload-section {
   max-width: 600px;
   margin: 0 auto;
+  margin-top: 60px;
   text-align: left;
-}
-
-.upload-label {
-  font-size: 1rem;
-}
-
-.upload-box {
-  border:  2px dashed #444;
-  padding: 40px;
-  margin-bottom: 20px;
-  position: relative;
-}
-
-.fiie-input {
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
 }
 
 .upload-btn {
@@ -36,12 +16,16 @@
   border: none;
   padding: 10px 35px;
   border-radius: 8px;
+  margin-top: 12px;
   margin-bottom: 10px;
   cursor: pointer;
+  transition: all .5s ease;
+  box-shadow: 2px 2px var(--accent-hover);
 }
 
 .upload-btn:hover {
-  background-color: var(--alt-background);
+  background-color: var(--accent-hover);
+  box-shadow: 4px 4px var(--accent);
 }
 
 .upload-section p {

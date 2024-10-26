@@ -5,7 +5,7 @@
 import React, { useState } from "react"
 import './UploadPanel.css'
 
-const UploadPanel = (uploadFile) => {
+const UploadPanel = ({ uploadFile, closePanel } ) => {
   // States to hold the detected color information
   // this states should be retrieved from backend
   const [detectedColors, setDetectedColors] = useState('{red, blue, yellow, ...}');
@@ -17,7 +17,14 @@ const UploadPanel = (uploadFile) => {
 
   return (
     <div className="upload-details-panel">
-      <h2 className="panel-title">Upload Details</h2>
+      <div className="upload-top-row">
+        <h2 className="panel-title">Upload Details</h2>
+        <div className="exit-x-container" onClick={closePanel}>
+          <div className="exit-x">
+            <span>x</span>
+          </div>
+        </div>
+      </div>
       
       <div className="upload-details-columns">
         <div>
@@ -31,7 +38,7 @@ const UploadPanel = (uploadFile) => {
           </div>
 
           <div className="input-group">
-            <label>Colours Detected</label>
+            <label>Medium(s) Detected</label>
             <textarea
               value={detectedMaterials}
               readOnly
@@ -47,20 +54,7 @@ const UploadPanel = (uploadFile) => {
           </button>
         </div>
         <div className="image-placeholder">
-        <svg
-          className="image-icon"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M3 7l8-4 8 4m-8 6v10M3 17l8-4 8 4"
-          ></path>
-        </svg>
+          <img src={uploadFile.path} />
       </div>
       </div>
     </div>

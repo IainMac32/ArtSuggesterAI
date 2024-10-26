@@ -3,6 +3,7 @@
  */
 
 .nav-header {
+  z-index: 100;
   top: 0;
   background-color: var(--alt-background);
   padding: 5px 15px;

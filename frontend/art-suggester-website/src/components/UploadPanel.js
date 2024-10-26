@@ -5,11 +5,11 @@
 import React, { useState } from "react"
 import './UploadPanel.css'
 
-const UploadPanel = ({ uploadFile, closePanel } ) => {
+const UploadPanel = ({ closePanel, img_url } ) => {
   // States to hold the detected color information
   // this states should be retrieved from backend
   const [detectedColors, setDetectedColors] = useState('{red, blue, yellow, ...}');
-  const [detectedMaterials, setDetectedMaterials] = useState('{pencil crayons, paint, marker, ...}');
+  const [detectedMediums, setDetectedMediums] = useState('{pencil crayons, paint, marker, ...}');
 
   const handleConfirm = () => {
     console.log("Confirmed!");
@@ -32,7 +32,7 @@ const UploadPanel = ({ uploadFile, closePanel } ) => {
             <label>Colours Detected</label>
             <textarea
               value={detectedColors}
-              readOnly
+              onChange={(e) => setDetectedColors(e.target.value)}
               className="detected-info"
             />
           </div>
@@ -40,8 +40,8 @@ const UploadPanel = ({ uploadFile, closePanel } ) => {
           <div className="input-group">
             <label>Medium(s) Detected</label>
             <textarea
-              value={detectedMaterials}
-              readOnly
+              value={detectedMediums}
+              onChange={(e) => setDetectedMediums(e.target.value)}
               className="detected-info"
             />
           </div>
@@ -54,8 +54,8 @@ const UploadPanel = ({ uploadFile, closePanel } ) => {
           </button>
         </div>
         <div className="image-placeholder">
-          <img src={uploadFile.path} />
-      </div>
+          <img src={img_url} />
+        </div>
       </div>
     </div>
   );

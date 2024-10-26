@@ -19,7 +19,7 @@ export default function Home() {
             <NavBar />
             { uploadPanelOpen && ( <>
                 <div className="overlay">
-                    <UploadPanel uploadFile={uploadFile} closePanel={() => setUploadPanelOpen(false)} />
+                    <UploadPanel img_url={URL.createObjectURL(uploadFile)} closePanel={() => setUploadPanelOpen(false)} />
                 </div>
             </>)}
 

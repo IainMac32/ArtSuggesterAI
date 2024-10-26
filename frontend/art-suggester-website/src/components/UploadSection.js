@@ -5,7 +5,6 @@
 import './UploadSection.css';
 import DragNdrop from './DragNDrop';
 import React from 'react';
-import { useState } from 'react';
 
 export default function UploadSection({ uploadFile, setUploadFile, panelOpen, setPanelOpen }) {
 

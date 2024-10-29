@@ -5,6 +5,7 @@ import Favourites from './pages/Favourites';
 import NoPage from './pages/NoPage';
 import './App.css';
 import "@fontsource/fira-code";
+import CreateAccount from './pages/CreateAccount';
 
 function App() {
   return (
@@ -14,8 +15,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/favourites" element={<Favourites />} />
-
-
+          <Route path = "/createAccount" element={<CreateAccount/>} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </BrowserRouter>

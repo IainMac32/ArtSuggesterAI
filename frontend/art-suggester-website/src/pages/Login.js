@@ -13,10 +13,13 @@ export default function Login() {
                     <input className = "loginInput" placeholder="johndoe@gmail.com"></input>
                     <h3 className = "inputLabel">Password</h3>
                     <input className = "loginInput" placeholder="password123"></input>
-                    {/* <!-- TODO: make this centered --> */}
-                    <h3 className = "or">------------OR------------</h3>
-                        <button className = "Google">Login with google</button>
-                    <h3 className = "or">--------------------------</h3>
+                    <div className = 'halfLine'></div> 
+                    <h3 className = "or">OR</h3>
+                    <div className = 'halfLine'></div>
+                    <button className = "Google"><img src="/images/GoogleLogo.png" alt="logo" className='google-logo' />Login with google</button>
+                    <div className = 'line'></div>
+                    <p className="noAcc">Don't have an account? <a href = '/createAccount'>Register now</a></p>
+
                 </div>
                 
             </main>    

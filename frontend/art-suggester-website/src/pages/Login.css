@@ -2,7 +2,6 @@
  * Johann Caancan
  */
 
-
 .loginPage {
     padding: 30px
 }
@@ -14,7 +13,12 @@
 
 .loginPage h2{
     margin-top: 0;
+    margin-bottom: 20px;
     font-size: 2rem;
+}
+
+.loginPage h3{
+    margin-bottom: 5px;
 }
 
 .loginPage input{
@@ -49,17 +53,55 @@ input::placeholder{
 
 .or{
     text-align: center !important;
-    width: 100%;
+    width: 10%;
+    margin-top: 10px ;
+    margin-bottom: 5px;
 }
 
 .Google{
     border: none;
-    align-self: center;
     background-color:#525DD5;
     width:100%;
-    font-family: "Fira Code";
-    font-size: 1.2rem;
+    height:40px;
+    font-family: "Poppins Light";
+    font-size: 1.6rem;
     color: white;
+    border-radius: 20px;
     
 }
 
+.line{
+    width: 100%;
+    background: white;
+    height: 3px;
+    margin-top: 20px;
+    border-radius: 2px;
+}
+
+.halfLine{
+    width: 45%;
+    background: white;
+    height: 3px;
+    margin-top: 20px;
+    border-radius: 2px;
+}
+
+.google-logo{
+    width:30px;
+    height:30px;
+    float: left;
+    margin-top: 0px;
+    border-radius: 20px;
+}
+
+p{
+    font-size: 0.8rem;
+}
+.noAcc{
+    margin:auto;
+    margin-top: 0.5rem;
+}
+
+a{
+    color:#525DD5;
+}

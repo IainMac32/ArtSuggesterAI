@@ -38,10 +38,14 @@ input:focus{
     outline: none;
 }
 
+input:focus::placeholder {
+    color: transparent;
+  }
+
 input::placeholder{
     font-family: "Fira Code";
     font-size: 18px;
-    color: white;
+    color: rgb(158, 152, 152);
 }
 
 .inputs{
@@ -54,7 +58,7 @@ input::placeholder{
 .or{
     text-align: center !important;
     width: 10%;
-    margin-top: 10px ;
+    margin-top: 8px ;
     margin-bottom: 5px;
 }
 
@@ -63,17 +67,33 @@ input::placeholder{
     background-color:#525DD5;
     width:100%;
     height:40px;
-    font-family: "Poppins Light";
+    font-family: "Roboto Medium";
     font-size: 1.6rem;
     color: white;
     border-radius: 20px;
     
 }
 
+.Login{
+    border: none;
+    background-color:#525DD5;
+    width:100%;
+    height:40px;
+    font-family: "Fira Code";
+    font-size: 1.6rem;
+    color: white;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #424ed4; 
+  }
+
 .line{
     width: 100%;
     background: white;
-    height: 3px;
+    height: 2px;
     margin-top: 20px;
     border-radius: 2px;
 }
@@ -81,7 +101,7 @@ input::placeholder{
 .halfLine{
     width: 45%;
     background: white;
-    height: 3px;
+    height: 2px;
     margin-top: 20px;
     border-radius: 2px;
 }
@@ -104,4 +124,8 @@ p{
 
 a{
     color:#525DD5;
+}
+
+a:hover{
+    color:#424ed4;
 }

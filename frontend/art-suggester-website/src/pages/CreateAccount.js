@@ -17,6 +17,8 @@ export default function CreateAccount() {
                     <input className = "loginInput" placeholder="user@domain.com"></input>
                     <h3 className = "inputLabel">Password</h3>
                     <input className = "loginInput" placeholder="password123"></input>
+                    <h3 className = "inputLabel">Verify Password</h3>
+                    <input className = "loginInput" placeholder="password123"></input>
                     <button className = "Login">Create Account</button>
                     <div className = 'halfLine'></div> 
                     <h3 className = "or">OR</h3>

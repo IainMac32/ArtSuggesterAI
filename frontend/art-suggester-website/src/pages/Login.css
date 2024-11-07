@@ -33,7 +33,7 @@
 }
 
 input:focus{
-    border-color: var(--content-hover);
+    border-color: var(--accent);
     outline: none;
 }
 

@@ -2,6 +2,7 @@
   "name": "art-suggester-website",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:5000",
   "dependencies": {
     "@fontsource/fira-code": "^5.1.0",
     "@fortawesome/fontawesome-svg-core": "^6.6.0",

@@ -11,16 +11,18 @@ export default function UploadSection({ uploadFile, setUploadFile, panelOpen, se
     const uploadBtnClick = async () => {
         if (panelOpen || uploadFile == null) return;
 
+        // form field and associated value
         const formData = new FormData();
-        formData.append('file', uploadFile); // Assuming 'uploadFile' is a file object
+        formData.append('file', uploadFile);
 
         try {
-            // Send a POST request to the Flask backend to upload the file
+            // post request to the flask backend to upload the file
             const response = await fetch('http://localhost:5000/uploadFile', {
                 method: 'POST',
                 body: formData,
             });
 
+            // check for upload success
             const result = await response.json();
             if (response.ok) {
                 console.log('File uploaded successfully:', result);

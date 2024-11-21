@@ -8,8 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faDownload, faStar } from '@fortawesome/free-solid-svg-icons'
 
 export default function Suggested() {
-    const [numSuggested, setNumSuggested] = useState(2);
-    const [suggested, setSuggested] = useState ([1,2]);
+    const [numSuggested, setNumSuggested] = useState(5);
+    const [suggested, setSuggested] = useState ([1,2,3,4,5]);
     
     function addFav (){
         setNumSuggested(numSuggested + 1);

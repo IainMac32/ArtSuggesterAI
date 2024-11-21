@@ -6,11 +6,10 @@ from PIL import Image
 import os
 
 
-array_of_arrays = np.array([
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 200, 110, 120, 130, 140, 150, 200],  # test 1
-    [0, 0, 0, 0, 0, 0, 0, 0, 90, 100, 110, 120, 130, 140, 150, 150],  # test 2
-    [5, 25, 35, 45, 55, 65, 75, 85, 95, 105, 115, 125, 135, 145, 155, 200],   # test 3
-])  # Put real array here
+loaded = np.load('data_np.npz')
+data_np = loaded['arr_0']  # Access the array
+
+array_of_arrays = data_np
 
 input_array = np.array([15, 25, 35, 45, 55, 65, 75, 85, 95, 105, 115, 125, 135, 145, 155, 200]) #from angela and harrison code
 

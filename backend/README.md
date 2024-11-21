@@ -1,8 +1,15 @@
-While in the backend directory do the following:
+Creating a python virtual environment:
 
-Create a virtual environment: 
+Windows:
 py -3 -m venv .venv
 .venv\Scripts\activate
 
-Download dependencies:
+Redhat based Linux:
+python3 -m venv .venv
+source .venv/bin/activate
+
+macOS:
+
+
+Download dependencies (please do this every time before):
 pip install -r requirements.txt

@@ -35,6 +35,7 @@ def upload_file():
     # Save the file to the directory
     file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
     file.save(file_path)
+    
 
     return jsonify({"message": "File uploaded successfully", "file_path": file_path}), 200
 

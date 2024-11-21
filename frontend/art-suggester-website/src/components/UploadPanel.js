@@ -1,9 +1,10 @@
 /*
- * Harrison Johns
+ * Harrison Johns, Johann Caancan
  */
 
 import React, { useState } from "react"
 import './UploadPanel.css'
+import { Navigate, useNavigate } from "react-router-dom";
 
 const UploadPanel = ({ closePanel, img_url } ) => {
   // States to hold the detected color information
@@ -11,8 +12,10 @@ const UploadPanel = ({ closePanel, img_url } ) => {
   const [detectedColors, setDetectedColors] = useState('{red, blue, yellow, ...}');
   const [detectedMediums, setDetectedMediums] = useState('{pencil crayons, paint, marker, ...}');
 
-  const handleConfirm = () => {
+  const navigate = useNavigate();
+  const HandleConfirm = () => {
     console.log("Confirmed!");
+    navigate("/suggested");
   };
 
   return (
@@ -45,9 +48,9 @@ const UploadPanel = ({ closePanel, img_url } ) => {
               className="detected-info"
             />
           </div>
-
+          
           <button
-            onClick={handleConfirm}
+            onClick={HandleConfirm}
             className="confirm-button"
           >
             Confirm

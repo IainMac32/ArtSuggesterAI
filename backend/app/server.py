@@ -1,10 +1,15 @@
 # flask backend for image uploading and retrieving
 # aiden, johann
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory, abort, send_file
 import os
+import zipfile
+from flask_cors import CORS
 
 app = Flask(__name__)
+
+##Enable CORS ffor all routes
+CORS(app)
 
 # find/create upload folder
 UPLOAD_FOLDER = 'uploads'
@@ -38,6 +43,19 @@ def upload_file():
     file.save(file_path)
 
     return jsonify({"message": "File uploaded successfully", "file_path": file_path}), 200
+
+images_dir = app.config["SUGGESTED_IMAGES"] = "returnImages"
+@app.route('/suggestedImages/<int:id>', methods=['GET'])
+def get_images(id):
+    print(images_dir)
+    image_array = os.listdir(images_dir)
+    image_to_send = image_array[id] 
+
+    if image_to_send == '':
+        return jsonify({"error": "No selected file"}), 400
+
+    file_path = os.path.join(images_dir, image_array[id])
+    return send_file(file_path)
 
 # run program
 if __name__ == "__main__":

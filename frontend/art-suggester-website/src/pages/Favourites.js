@@ -7,21 +7,13 @@ import NavBar from "../components/NavBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faDownload, faStar } from '@fortawesome/free-solid-svg-icons'
 
-export default function Favourites() {
-    const [numFavs, setNumFavs] = useState(0);
-    const [favourites, setFavorutites] = useState ([]);
-
-    function addFav (){
-        setNumFavs(numFavs + 1);
-        const newFav = [...favourites, numFavs];
-        setFavorutites(newFav);
-    }
-
-    function delFav(toDelIndex){
-        const newFav = favourites.filter((favItem,favIndex) => favIndex !== toDelIndex);
-        setFavorutites (newFav);
-
-    }
+export default function Favourites(props) {
+    let numFavs = props.numFavs;
+    let setNumFavs = props.setNumFavs;
+    let favourites = props.favourites;
+    let setFavorutites = props.Favourites;
+    let addFav = props.addFav;
+    let delFav = props.delFav
 
     return (
         <>

@@ -49,14 +49,14 @@ def rank_colours(img_array):
         "purple_dark": (75, 0, 130),
         "purple_light": (216, 191, 216),
         "pink_normal": (255, 192, 203),
-        # "pink_dark": (255, 105, 180),
-        # "pink_light": (255, 182, 193),
+        "pink_dark": (255, 105, 180),
+        "pink_light": (255, 182, 193),
         "brown_normal": (165, 42, 42),
-        # "brown_dark": (101, 67, 33),
-        # "brown_light": (222, 184, 135),
-        # "gray_normal": (128, 128, 128),
-        # "gray_dark": (105, 105, 105),
-        # "gray_light": (211, 211, 211),
+        "brown_dark": (101, 67, 33),
+        "brown_light": (222, 184, 135),
+        "gray_normal": (128, 128, 128),
+        "gray_dark": (105, 105, 105),
+        "gray_light": (211, 211, 211),
         "cyan_normal": (0, 255, 255),
         "cyan_dark": (0, 139, 139),
         "cyan_light": (224, 255, 255),
@@ -71,13 +71,15 @@ def rank_colours(img_array):
         "teal_light": (128, 191, 191),
         "navy_normal": (0, 0, 128),
         "navy_dark": (0, 0, 102),
-        "navy_light": (173, 216, 230)
+        "navy_light": (173, 216, 230),
+        "white": (255,255,255)
     }
 
     colour_ids = {name: idx for idx, name in enumerate(colour_codes)}
 
     # Convert the colour_codes dict to a numpy array for faster computation
     colour_codes_array = np.array(list(colour_codes.values()))
+
 
     # Build a k-d tree for fast nearest neighbor search
     colour_tree = cKDTree(colour_codes_array)
@@ -108,6 +110,16 @@ def rank_colours(img_array):
 
     # Sort the colours by frequency (most common first)
     ranked_colour_ids = [colour_ids[colour] for colour, _ in colour_counter.most_common()]
+
+    exclude_colours = [20,21,23,24,25,26,27,43]
+    exclude_colours = [42,24,25,26,22,23]
+
+    new_ranked_colour_ids = []
+    for c in ranked_colour_ids:
+        if c not in exclude_colours:
+            new_ranked_colour_ids.append(c)
+    ranked_colour_ids = new_ranked_colour_ids
+
 
     if len(ranked_colour_ids) < 5:
         # If fewer than 5 colours, repeat the most common colours to fill up the list
@@ -206,11 +218,11 @@ def processUserImage(image_name):
 
     top_colours = np.array(colour_ranks[:5]).flatten()
 
-    for col in range(len(top_colours)):
-        if top_colours[col] == 19:
-            top_colours[col] = 21
-        elif top_colours[col] >= 20:
-            top_colours[col] +=7
+    # for col in range(len(top_colours)):
+    #     if top_colours[col] == 19:
+    #         top_colours[col] = 21
+    #     elif top_colours[col] >= 20:
+    #         top_colours[col] +=7
 
     if len(top_colours) < 5:
         # If fewer than 5 colours, repeat the most common colours to fill up the list
@@ -226,4 +238,4 @@ def processUserImage(image_name):
     SimilaritySearch(processed_image)
 
 
-processUserImage("ob1.jpg")
+# processUserImage("ob1.jpg")

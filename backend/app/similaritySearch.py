@@ -5,17 +5,21 @@ from scipy.spatial.distance import cdist
 from PIL import Image
 import os
 
-def SimilaritySearch(array):
-    loaded = np.load('data_np.npz')
+def SimilaritySearch(input_array):
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    data_base = os.path.join(script_dir, "data_np.npz")
+
+    loaded = np.load(data_base)
     data_np = loaded['arr_0']  # Access the array
 
     array_of_arrays = data_np
 
-    input_array = array_of_arrays[0] #change to array
-
+    input_array = np.array(input_array)
 
     # filter arrays where the last index matches
-    last_index_value = input_array[49152:49155]
+    last_index_value = input_array[0:3]
+    print(last_index_value)
     filtered_arrays = array_of_arrays[np.all(array_of_arrays[:, 49152:49155] == last_index_value, axis=1)]
 
 
@@ -23,9 +27,11 @@ def SimilaritySearch(array):
         print("No arrays match the condition on the last index.")
     else:
         # don't include last index
-        input_subarray = input_array[49155:]
+        input_subarray = input_array[3:]
+        print("this is input subarray ",input_subarray)
 
         filtered_subarrays = filtered_arrays[:, 49155:]
+        print("Filtered sub",filtered_subarrays[0])
 
         distances = cdist(filtered_subarrays, input_subarray.reshape(1, -1), metric='euclidean')
 
@@ -62,4 +68,3 @@ def SimilaritySearch(array):
         i += 1
 
 
-SimilaritySearch("d")

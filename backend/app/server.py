@@ -1,6 +1,20 @@
 from flask import Flask, request, jsonify, send_file, abort
 import os
 from flask_cors import CORS
+from processUserImage import processUserImage
+import tensorflow as tf
+from tensorflow.keras.models import load_model
+from tensorflow.keras.preprocessing.image import load_img, img_to_array
+import numpy as np
+from collections import Counter
+from scipy.spatial import cKDTree
+from PIL import Image
+from sklearn.cluster import KMeans
+from skimage.color import rgb2lab, deltaE_cie76
+from similaritySearch import SimilaritySearch
+from scipy.spatial.distance import cdist
+
+
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -35,6 +49,10 @@ def upload_file():
     # Save the file to the directory
     file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
     file.save(file_path)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    file_path = os.path.join(script_dir, file_path)
+
+    processUserImage(file_path)
     
 
     return jsonify({"message": "File uploaded successfully", "file_path": file_path}), 200

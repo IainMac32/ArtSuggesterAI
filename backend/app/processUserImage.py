@@ -17,15 +17,7 @@ from similaritySearch import SimilaritySearch
 
 
 
-def rank_colours(img_array):
-
-
-
-
-
-
-
-
+def rank_colours(image_name):
 
     # Color palette with RGB values
     # dictionary of colour codes
@@ -97,8 +89,19 @@ def rank_colours(img_array):
 
     colour_counter = Counter()
 
-    # Reshape the image array for vectorized operations (128*128, 3)
-    img_array = img_array.reshape(-1, 3)
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+
+    uploads_dir = os.path.join(script_dir, "uploads")
+    file_path = os.path.join(uploads_dir, image_name)
+
+
+    img = Image.open(file_path).convert('RGB')
+    img = img.resize((128, 128))
+    img_array = np.array(img)  # Convert to NumPy array
+
+    # Reshape the 3D array (128x128x3) into 2D array (128*128)x3
+    img_array = img_array.reshape(-1, 3)  # Flatten to (16384, 3)
+
 
     # Calculate the squared distance for each pixel to every color in the colour_codes
     distances, indices = colour_tree.query(img_array)  # Query all pixels at once
@@ -111,8 +114,7 @@ def rank_colours(img_array):
     # Sort the colours by frequency (most common first)
     ranked_colour_ids = [colour_ids[colour] for colour, _ in colour_counter.most_common()]
 
-    exclude_colours = [20,21,23,24,25,26,27,43]
-    exclude_colours = [42,24,25,26,22,23]
+    exclude_colours = [42,24,25,26,22,23,17]
 
     new_ranked_colour_ids = []
     for c in ranked_colour_ids:
@@ -125,9 +127,21 @@ def rank_colours(img_array):
         # If fewer than 5 colours, repeat the most common colours to fill up the list
         ranked_colour_ids += [ranked_colour_ids[0]] * (5 - len(ranked_colour_ids))
 
+    for i in range(len(ranked_colour_ids)):
+        # Reverse the colour_ids mapping
+        reverse_colour_ids = {v: k for k, v in colour_ids.items()}
+
+        # Example: if 23 is the most common colour
+        colour_index = ranked_colour_ids[i]
+        ranked_colour_ids[i] = reverse_colour_ids.get(colour_index)
+
+
+
+
     return ranked_colour_ids[:5]
 
 
+# print(rank_colours("IMG_0058.jpg"))
 
 
 
@@ -142,8 +156,7 @@ def rank_colours(img_array):
 
 
 
-
-def processUserImage(image_name):
+def processUserImage(image_name,fixed_color_list):
     # Get the current script's directory
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
@@ -213,7 +226,8 @@ def processUserImage(image_name):
     img_array = img_array.reshape(-1, 3)  # Flatten to (16384, 3)
 
     # Find 5 most prominent colours
-    colour_ranks = rank_colours(img_array)
+    colour_ranks = fixed_color_list
+    #BUT WE NEED TO MAKE THESE BACK INTO THE INDEXES INSTEAD OF ACTUAL COLOR NAMES
 
 
     top_colours = np.array(colour_ranks[:5]).flatten()
